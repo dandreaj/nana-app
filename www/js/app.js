@@ -54,7 +54,9 @@ angular.module('nana', [
       })
       .state('welcome', {
         url: '/welcome',
-        templateUrl: './templates/welcome.html'
+        templateUrl: './templates/welcome.html',
+        controller: 'authController',
+        controllerAs: 'vm'
       })
       .state('addInfo', {
         url: '/addInfo',

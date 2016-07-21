@@ -4,12 +4,13 @@
     <!-- The content of the page -->
     <div class="list list-inset">
       <label class="item item-input">
-        <input type="text" placeholder="Email">
+        <input type="text" placeholder="Email" ng-model="vm.email">
       </label>
       <label class="item item-input">
-        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Password" ng-model="vm.password">
       </label>
     </div>
+    <button class="button button-royal" ng-click="vm.signIn(vm.email,vm.password)">Login</button>
     <a href="#/main">Don't have an account? Register!</a>
   </ion-content>
 </ion-view>
