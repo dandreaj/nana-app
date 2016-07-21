@@ -1,25 +1,42 @@
-<ion-view title="home">
-  <ion-nav-view name="navbar"></ion-nav-view>
-  <ion-header-bar align-title="center" class="bar-calm">
+<ion-view title="Home">
+  <ion-header-bar align-title="center" class="bar-positive">
     <div class="buttons">
       <button class="button icon ion-navicon-round" ng-click="doSomething()"></button>
     </div>
     <h1 class="h1 title title-centre light">Home</h1>
   </ion-header-bar>
   <ion-content>
-    <div class="card">
-      <img src='img/frenchie.jpg'></img>
-      <div class="item item-text-wrap">
-        This is a basic Card which contains an item that has wrapping text.
+    <div class="row profile">
+      <div class="col col-50 col-offset-25 container profile-container">
+        <img src="img/frenchie.jpg">
+        <div class="mask"></div>
       </div>
     </div>
-    <div class="list list-inset">
-      <label class="item item-input">
-        <input type="text" placeholder="Your Dog's Name">{{vm.dogName}}
-      </label>
-      <label class="item item-input">
-        <input type="text" placeholder="Last Name">
-      </label>
+    <div class="container button-container">
+      <div class="row">
+        <div class="col col-50">
+          <button class="ion-ios-paw button button-balanced"></button>
+        </div>
+        <div class="col col-50">
+          <button class="ion-ios-paw button button-balanced"></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-50">
+          <button class="ion-ios-paw button button-balanced"></button>
+        </div>
+        <div class="col col-50">
+          <button class="ion-ios-paw button button-balanced"></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-50">
+          <button class="ion-ios-paw button button-balanced"></button>
+        </div>
+        <div class="col col-50">
+          <button class="ion-ios-paw button button-balanced"></button>
+        </div>
+      </div>
     </div>
   </ion-content>
 </ion-view>

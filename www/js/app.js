@@ -20,23 +20,51 @@ angular.module('nana', [
     firebase.initializeApp(config);
 
     //routes
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/welcome');
     $stateProvider
-      .state('home', {
+      .state('main', {
+        url: '/main',
+        // abstract: true,
+        // defaultChild: 'main.home',
+        templateUrl: 'templates/main.html'
+      })
+      .state('main.home', {
         url: '/home',
-        templateUrl: './templates/home.html',
-        controller: 'homeController',
-        controllerAs: 'vm'
+        views: {
+          'home': {
+            templateUrl: './templates/home.html',
+            controller: 'homeController',
+            controllerAs: 'vm'
+          }
+        }
+      })
+      .state('main.settings', {
+        url: '/settings',
+        views: {
+          'settings': {
+            templateUrl: './templates/settings.html'
+          }
+        }
+      })
+      .state('main.something', {
+        url: '/something',
+        views: {
+          templateUrl: './templates/something.html'
+        }
       })
       .state('welcome', {
         url: '/welcome',
         templateUrl: './templates/welcome.html'
       })
-      .state('register', {
-        url: '/register',
-        templateUrl: './templates/dogInfo.html',
+      .state('addInfo', {
+        url: '/addInfo',
+        templateUrl: './templates/addInfo.html',
         controller: 'infoController',
         controllerAs: 'vm'
+      })
+      .state('register', {
+        url: '/register',
+        templateUrl: './templates/register.html'
       });
   })
   .run(function($ionicPlatform) {
