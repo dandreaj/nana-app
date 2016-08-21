@@ -1,7 +1,13 @@
 <!-- The title of the ion-view will be shown on the navbar -->
 <ion-view view-title="Welcome">
-  <ion-content>
+  <ion-content class="welcome">
     <!-- The content of the page -->
+    <div class="hero no-header flat">
+      <div class="content">
+        <div class="app-icon"></div>
+        <h1>Nana</h1>
+      </div>
+    </div>
     <div class="list list-inset">
       <label class="item item-input">
         <input type="text" placeholder="Email" ng-model="vm.email">
@@ -10,7 +16,10 @@
         <input type="password" placeholder="Password" ng-model="vm.password">
       </label>
     </div>
-    <button class="button button-royal" ng-click="vm.signIn(vm.email,vm.password)">Login</button>
-    <a href="#/main">Don't have an account? Register!</a>
+    <button class="button button-royal login" ng-click="vm.signIn(vm.email,vm.password)">Login</button>
+    <div class="login-options">
+      <a ng-click="modal.show()">Forgot Password?</a>
+      <a href="#/register">Don't have an account? Register!</a>
+    </div>
   </ion-content>
 </ion-view>

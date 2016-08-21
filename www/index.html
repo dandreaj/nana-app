@@ -6,17 +6,25 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <title></title>
 
-  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
 
-  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
+  <!-- compiled css output -->
+  <link href="css/ionic.app.css" rel="stylesheet">
+  <link href="lib/ionic-material/dist/ionic.material.min.css" rel="stylesheet" />
+    <link href="lib/ionic-advanced-carousel/dist/advanced-carousel.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="lib/nvd3/build/nv.d3.css">
 
   <!-- ionic/angularjs js -->
   <script src="lib/ionic/js/ionic.bundle.js"></script>
   <script src="lib/firebase/firebase.js" charset="utf-8"></script>
   <script src="lib/angularfire/dist/angularfire.min.js" charset="utf-8"></script>
+  <script src="lib/moment/moment.js"></script>
+  <script src="lib/angular-moment/angular-moment.js"></script>
+  <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+  <script src="lib/ionic-material/dist/ionic.material.min.js"></script>
+  <script src="lib/ionic-toast/dist/ionic-toast.bundle.min.js"></script>
+  <script src="lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
+  <script src="lib/ionic-advanced-carousel/dist/advanced-carousel.min.js"></script>
+  <!-- <script src="lib/moment/min/moment.min.js"></script> -->
   <script src="lib/q/q.js"></script>
   <!-- cordova script (this will be a 404 during development) -->
   <script src="cordova.js"></script>
@@ -26,16 +34,20 @@
   <script src="js/auth.service.js"></script>
   <script src="js/main.service.js"></script>
   <script src="js/info.service.js"></script>
+  <script src="js/user.service.js"></script>
+
 
 </head>
 
 <body ng-app="nana">
-  <ui-view></ui-view>
+  <ion-nav-view></ion-nav-view>
 
   <!-- Ionic Logic -->
   <script src="/js/auth.controller.js" charset="utf-8"></script>
+  <script src="/js/main.controller.js" charset="utf-8"></script>
   <script src="/js/home.controller.js" charset="utf-8"></script>
   <script src="/js/info.controller.js" charset="utf-8"></script>
+  <script src="/js/something.controller.js" charset="utf-8"></script>
 
 </body>
 

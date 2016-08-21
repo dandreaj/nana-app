@@ -1,0 +1,45 @@
+<ion-view title="Add a Fur Baby">
+
+  <ion-content>
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Dog Name</span>
+        <input type="text" placeholder="Dog Name" ng-model="vm.animalName">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Breed</span>
+        <input type="text" placeholder="Breed" ng-model="vm.breed">
+      </label>
+      <button class="button button-dark" ng-click="vm.openDatePicker()">
+        Whatever
+      </button>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Date Acquired</span>
+        <input type="text" placeholder="Date Acquired" ng-model="vm.dateAcquired">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Birthday</span>
+        <input type="text" placeholder="Birthday" ng-model="vm.birthday">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Gender</span>
+        <input type="text" placeholder="Gender" ng-model="vm.gender">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Color</span>
+        <input type="text" placeholder="Color" ng-model="vm.color">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Microchip</span>
+        <input type="text" placeholder="Microchip" ng-model="vm.microchip">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Registration</span>
+        <input type="text" placeholder="Registration" ng-model="vm.registration">
+      </label>
+    </div>
+    <button class="button button-dark" ng-click="vm.addAnimal()">
+      Add Dog
+    </button>
+  </ion-content>
+</ion-view>

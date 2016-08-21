@@ -5,7 +5,12 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('nana', [
   'ionic',
-  'firebase'
+  'firebase',
+  'angularMoment',
+  'ngCordova',
+  'ionic-datepicker',
+  'ionic-toast',
+  'aCarousel'
 ])
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -20,18 +25,28 @@ angular.module('nana', [
     firebase.initializeApp(config);
 
     //routes
+    $urlRouterProvider.when('/main', '/main/home');
     $urlRouterProvider.otherwise('/welcome');
     $stateProvider
       .state('main', {
         url: '/main',
         // abstract: true,
-        // defaultChild: 'main.home',
-        templateUrl: 'templates/main.html'
+        templateUrl: 'templates/menu.html',
+        controller: 'mainController',
+        controllerAs: 'vm',
+        resolve: {
+          checkAuth: ['authService', function(authService) {
+            return authService.checkAuthSession();
+          }],
+          animalData: ['infoService', function(infoService) {
+            return infoService.getAnimalData();
+          }]
+        }
       })
       .state('main.home', {
         url: '/home',
         views: {
-          'home': {
+          'menuContent': {
             templateUrl: './templates/home.html',
             controller: 'homeController',
             controllerAs: 'vm'
@@ -41,7 +56,7 @@ angular.module('nana', [
       .state('main.settings', {
         url: '/settings',
         views: {
-          'settings': {
+          'menuContent': {
             templateUrl: './templates/settings.html'
           }
         }
@@ -49,7 +64,19 @@ angular.module('nana', [
       .state('main.something', {
         url: '/something',
         views: {
-          templateUrl: './templates/something.html'
+          'menuContent': {
+            templateUrl: './templates/something.html',
+            controller: 'somethingController',
+            controllerAs: 'vm'
+          }
+        }
+      })
+      .state('main.addInfo', {
+        url: '/addInfo',
+        views: {
+          'menuContent': {
+            templateUrl: './templates/addInfo.html'
+          }
         }
       })
       .state('welcome', {
@@ -58,15 +85,27 @@ angular.module('nana', [
         controller: 'authController',
         controllerAs: 'vm'
       })
-      .state('addInfo', {
-        url: '/addInfo',
-        templateUrl: './templates/addInfo.html',
-        controller: 'infoController',
-        controllerAs: 'vm'
-      })
+      // .state('addInfo', {
+      //   url: '/addInfo',
+      //   views: {
+      //     'menuContent': {
+      //       templateUrl: './templates/addInfo.html'
+      //     }
+      //   }
+      // templateUrl: './templates/addInfo.html',
+      // controller: 'infoController',
+      // controllerAs: 'vm'
+      // resolve: {
+      //   currentUser: ['authService', function(authService){
+      //     return authService.currentUser();
+      //   }]
+      // }
+      // })
       .state('register', {
         url: '/register',
-        templateUrl: './templates/register.html'
+        templateUrl: './templates/register.html',
+        controller: 'authController',
+        controllerAs: 'vm'
       });
   })
   .run(function($ionicPlatform) {
@@ -86,3 +125,15 @@ angular.module('nana', [
       }
     });
   });
+//   .run(runBlock);
+//
+//
+// function runBlock($rootScope, $log, $state) {
+//   var runScopeOn = $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
+//     if (error === "AUTH_REQUIRED") {
+//       $state.go('login');
+//     }
+//   });
+//   $log.debug('runBlock end');
+//   $rootScope.$on('$destroy', runScopeOn);
+// }

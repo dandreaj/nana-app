@@ -1,42 +1,27 @@
 <ion-view title="Home">
-  <ion-header-bar align-title="center" class="bar-positive">
-    <div class="buttons">
-      <button class="button icon ion-navicon-round" ng-click="doSomething()"></button>
-    </div>
-    <h1 class="h1 title title-centre light">Home</h1>
-  </ion-header-bar>
   <ion-content>
-    <div class="row profile">
-      <div class="col col-50 col-offset-25 container profile-container">
-        <img src="img/frenchie.jpg">
-        <div class="mask"></div>
+    <section>
+      <div id="carousel-4" class="carousel-wrapper profile">
+        <div class="content">
+        <a-carousel carousel-options="::vm.carouselOptions4" array-provider="::vm.carouselData4" on-select="vm.onSelectCarousel(item)">
+        </a-carousel>
       </div>
+      <h3>
+        <a class="light">{{vm.itemSelected.animalName}}</a>
+      </h3>
+      <h4>The {{vm.itemSelected.breed}}</h4>
+      </div>
+    </section>
+    <div>
+
     </div>
-    <div class="container button-container">
-      <div class="row">
-        <div class="col col-50">
-          <button class="ion-ios-paw button button-balanced"></button>
-        </div>
-        <div class="col col-50">
-          <button class="ion-ios-paw button button-balanced"></button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-50">
-          <button class="ion-ios-paw button button-balanced"></button>
-        </div>
-        <div class="col col-50">
-          <button class="ion-ios-paw button button-balanced"></button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-50">
-          <button class="ion-ios-paw button button-balanced"></button>
-        </div>
-        <div class="col col-50">
-          <button class="ion-ios-paw button button-balanced"></button>
-        </div>
-      </div>
+    <!-- <div class="button-bar"><a class="button">1</a><a class="button">2</a><a class="button">3</a><a class="button">4</a></div> -->
+    <div class="container animal-info">
+        <h4>Name: {{vm.itemSelected.animalName}}</h4>
+        <h4>Breed: {{vm.itemSelected.breed}}</h4>
+        <h4>Weight: {{vm.itemSelected.weight}} as of</h4>
+        <h4>Name: {{vm.itemSelected.animalName}}</h4>
+        <h4>Name: {{vm.itemSelected.animalName}}</h4>
     </div>
   </ion-content>
 </ion-view>
